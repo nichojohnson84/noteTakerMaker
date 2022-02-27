@@ -1,11 +1,11 @@
 //all of the required programs
 const express = require("express");
+const { notes } = require("./db/db");
 const path = require("path");
 const fs = require("fs");
 
 // Setting up express
 const app = express();
-const PORT = process.env.PORT || 3001;
 
 //now Express can parse out the data
 app.use(express.urlencoded({ extended: true }));
@@ -27,8 +27,8 @@ app.get("*", (req, res) => {
 
 // sort of catchs the JSON data
 app.post("/api/notes", (req, res) => {
-  const new_notes = req.body;
-  const notes = fs.readFileSync("./db/db.json");
+  let new_notes = req.body;
+  let notes = fs.readFileSync("./db/db.json");
   new_notes.id = String(notes.length);
   notes = JSON.parse(notes);
   notes.push(new_notes);
@@ -37,7 +37,7 @@ app.post("/api/notes", (req, res) => {
 });
 
 app.delete("/api/notes/:id", (req, res) => {
-  const noteId = req.params.id;
+  let noteId = req.params.id;
   notes = fs.readFileSync("./db/db.json");
   notes = JSON.parse(notes);
   notes = notes.filter((note) => {
@@ -53,5 +53,5 @@ app.delete("/api/notes/:id", (req, res) => {
 
 // begins listening for any activity
 app.listen(3001, () => {
-  console.log("App listening on PORT 3001" + PORT);
+  console.log("App listening on port 3001!");
 });
