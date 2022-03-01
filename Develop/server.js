@@ -3,22 +3,28 @@ const express = require("express");
 const { notes } = require("./db/db.json");
 const path = require("path");
 const fs = require("fs");
+//const apiRoutes = require("./routes/apiRoutes");
+//const htmlRoutes = require("./routes/htmlRoutes");
 
 // Setting up express
+const PORT = process.env.PORT || 3001;
 const app = express();
 
 //now Express can parse out the data
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
+app.use(express.static("./public"));
 
-// I believe this is where we talked about nudging the user into the right direction
+//setting up API to use routes
+//app.use("/api", apiRoutes);
+//app.use("/", htmlRoutes);
+
 app.get("/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/public/notes.html"));
+  res.sendFile(path.join(__dirname, "./public/notes.html"));
 });
 
 app.get("/api/notes", (req, res) => {
-  res.sendFile(path.join(__dirname, "/db/db.json"));
+  res.sendFile(path.join(__dirname, "./db/db.json"));
 });
 
 app.get("*", (req, res) => {
@@ -52,6 +58,6 @@ app.delete("/api/notes/:id", (req, res) => {
 });
 
 // begins listening for any activity
-app.listen(3001, () => {
-  console.log("App listening on port 3001!");
+app.listen(PORT, () => {
+  console.log(`API server now on port ${PORT}!`);
 });
