@@ -34,6 +34,7 @@ app.get("*", (req, res) => {
 // sort of catchs the JSON data
 app.post("/api/notes", (req, res) => {
   let new_notes = req.body;
+  console.log(new_notes);
   let notes = fs.readFileSync("./db/db.json");
   new_notes.id = String(notes.length);
   notes = JSON.parse(notes);
@@ -44,7 +45,7 @@ app.post("/api/notes", (req, res) => {
 
 app.delete("/api/notes/:id", (req, res) => {
   let noteId = req.params.id;
-  notes = fs.readFileSync("./db/db.json");
+  let notes = fs.readFileSync("./db/db.json");
   notes = JSON.parse(notes);
   notes = notes.filter((note) => {
     if (noteId === note.id) {
