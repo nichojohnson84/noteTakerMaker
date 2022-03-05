@@ -35,6 +35,10 @@ I have actually commented out but saved two features of the app for API routing 
 
 I learned how to create and deploy an actual application!  I also learned about HTML and API Routes but I ended upnot going with the API Routes since all of the code was already in the server.js file but I saved them for future use.  We basically built our own server.
 
+![Home page](https://user-images.githubusercontent.com/94770081/156900613-5d2091ee-bc32-455f-bb5b-3e3594e5fd45.jpg)
+
+![Screenshot 2022-03-05 142924 note taker](https://user-images.githubusercontent.com/94770081/156900616-3ba895e5-3491-4036-b65d-af91b7a0ad88.jpg)
+
 ## License
 
 MIT
