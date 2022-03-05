@@ -1,3 +1,4 @@
+//This isn't being used but I am leaving it to practice for next project.
 const path = require("path");
 const router = require("express").Router();
 

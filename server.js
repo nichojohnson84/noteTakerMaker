@@ -3,8 +3,8 @@ const express = require("express");
 const { notes } = require("./db/db.json");
 const path = require("path");
 const fs = require("fs");
-//const apiRoutes = require("./routes/apiRoutes");
-//const htmlRoutes = require("./routes/htmlRoutes");
+//const apiRoutes = require("./routes/apiRoutes"); Leaving to practice later
+//const htmlRoutes = require("./routes/htmlRoutes");  Leaving to practice later
 
 // Setting up express
 const PORT = process.env.PORT || 3001;
